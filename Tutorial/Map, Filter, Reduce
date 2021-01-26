@@ -1,0 +1,78 @@
+
+const isMomHappy = false;
+
+const willIGetNewPhone = new Promise( (resolve, reject) => {
+    if (isMomHappy) {
+
+        const phone = {
+            Brand: 'Samsung',
+            Model: 'Galaxy S10 Lite',
+            Price: 49000,
+            DOP: new Date()
+        }
+        resolve(phone);
+    } else {
+        const msg = new Error('Mom was not Happy for me!!');
+        reject(msg);
+    }
+});
+
+
+async function askMom() {
+    try {
+        let phone = await willIGetNewPhone;
+        console.log(phone);
+
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
+(async () => {
+    await askMom();
+})();
+
+movies = ['KKHM', 'ddlj', 12];
+
+if(movies.includes(11)) {
+    console.log('found'); 
+} else {
+    console.log('Not Found');
+}
+
+// -------------------------- MAP  TUTORIAL ---------------------------------------------
+
+const numbers = [1,2,3,4,5];
+const doubled = numbers.map( x => x*2 + 2**3);
+console.log(doubled);
+// -------------------------- FILTER TUTORIAL ---------------------------------------------
+
+const evens = numbers.filter(item => item % 2 === 0);
+console.log(evens);
+
+const odd = numbers.filter(item => item % 2 !== 0);
+console.log(odd);
+
+const students = [
+    { name: 'Quincy', grade: 96 },
+    { name: 'Jason', grade: 84 },
+    { name: 'Alexis', grade: 100 },
+    { name: 'Sam', grade: 65 },
+    { name: 'Katie', grade: 90 }
+];
+
+const topScorers = students.filter( student => student.grade >= 90);
+console.log(topScorers);
+
+const sumOfScores = students.reduce( (scores, student) => {
+    return scores + student.grade;
+}, 0);
+
+console.log(`Sum of Scores is ${sumOfScores}`);
+// -----------------------------------------------------------------------
+
+const numbers = [1, 2, 3, 4];
+const sum = numbers.reduce( (result, item) => {
+    return result + item;
+}, 0);
+console.log(`Sum of Numbers is ${sum}`);
